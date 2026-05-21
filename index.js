@@ -2,7 +2,7 @@ import express from 'express'; // importa o Express usando ES Modules
 
 const app = express(); // cria a aplicação Express
 const PORT = 3000; // porta onde o servidor vai rodar localmente
-if (process.env.VERCEL !== '1')
+
 app.get("/status", (req, res) => {
   res.json({ status: 'ok' , 
     timestamp: new Date() 
