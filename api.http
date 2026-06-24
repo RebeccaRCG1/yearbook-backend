@@ -1,0 +1,22 @@
+### Criar o João Teste
+POST http://localhost:3000/alunos
+Content-Type: application/json
+
+{
+  "nome": "João Teste",
+  "email": "joao.perfeito@email.com",
+  "senhaHash": "hash_temporario_456",
+  "cidade": "Salinas"
+}
+
+### Atualizar o João Teste (ID 3)
+PUT http://localhost:3000/alunos/3
+Content-Type: application/json
+
+{
+  "nome": "João Modificado",
+  "cidade": "Belo Horizonte"
+}
+
+### Deletar o João Modificado (ID 3)
+DELETE http://localhost:3000/alunos/3
