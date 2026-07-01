@@ -41,32 +41,41 @@ export async function buscarAluno(req, res) {
 
 // 🎯 POST /alunos — cria um novo aluno
 export async function criarAluno(req, res) {
-  try {
-    const data = req.body;
+  const { nome, email, senhaHash, cidade, frase, planosFuturos } = req.body;
     const novoAluno = await prisma.aluno.create({
-      data: data,
+      data: {
+        nome: nome, 
+        email: email, 
+        senhaHash: senhaHash, 
+        cidade: cidade, 
+        frase: frase, 
+        planosFuturos: planosFuturos
+      },
       select: selectSemSenha,
     });
     res.status(201).json(novoAluno);
-  } catch (erro) {
-    console.log("O ERRO REAL É ESSE AQUIÓ:", erro); // <--- Esse é o nosso espião!
-    res.status(400).json({ erro: 'Erro ao criar aluno. Verifique os dados.' });
-  }
 }
 
 // 🎯 PUT /alunos/:id — atualiza um aluno existente
 export async function atualizarAluno(req, res) {
   try {
     const { id } = req.params;
-    const data = req.body;
+    const { nome, email, senhaHash, cidade, frase, planosFuturos } = req.body;
     const alunoAtualizado = await prisma.aluno.update({
       where: { id: Number(id) },
-      data: data,
+      data: {
+        nome: nome, 
+        email: email, 
+        senhaHash: senhaHash, 
+        cidade: cidade, 
+        frase: frase, 
+        planosFuturos: planosFuturos
+      },
       select: selectSemSenha,
     });
     res.json(alunoAtualizado);
   } catch (erro) {
-    res.status(404).json({ erro: 'Aluno não encontrado ou dados inválidos.' });
+    res.status(404).json({ erro: 'Aluno não encontrado' });
   }
 }
 
@@ -79,6 +88,6 @@ export async function deletarAluno(req, res) {
     });
     res.status(204).end();
   } catch (erro) {
-    res.status(404).json({ erro: 'Aluno não encontrado para exclusão.' });
+    res.status(404).json({ erro: 'Aluno não encontrado' });
   }
 }
