@@ -2,6 +2,7 @@ import express from 'express';
 // 1. Adicione o import do logger bem aqui no topo:
 import logger from './middlewares/logger.js';
 import alunosRouter from './routes/alunos.js';
+import rotasMensagens from './routes/mensagens.js';
 
 const app = express();
 const PORT = 3000;
@@ -20,6 +21,7 @@ app.get('/status', (req, res) => {
 });
 
 app.use('/alunos', alunosRouter);
+app.use('/mensagens', rotasMensagens);
 
 if (process.env.VERCEL !== '1') {
   app.listen(PORT, () => {
