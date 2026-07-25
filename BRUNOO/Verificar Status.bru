@@ -1,0 +1,16 @@
+meta {
+  name: Verificar Status
+  type: http
+  seq: 11
+}
+
+get {
+  url: https://expert-zebra-g4g59x4gj66v3w77p-3000.app.github.dev/status
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

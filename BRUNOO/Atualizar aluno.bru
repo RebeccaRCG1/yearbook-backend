@@ -1,0 +1,18 @@
+meta {
+  name: Atualizar aluno
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://expert-zebra-g4g59x4gj66v3w77p-3000.app.github.dev/alunos/5
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nome": "João Modificado",
+    "cidade": "Belo Horizonte"
+  }
+}

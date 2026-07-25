@@ -1,0 +1,19 @@
+meta {
+  name: Mensagens sem texto
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://expert-zebra-g4g59x4gj66v3w77p-3000.app.github.dev/mensagens
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "texto": "",
+    "autorId": 1
+  }
+  
+}

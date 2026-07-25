@@ -1,0 +1,20 @@
+meta {
+  name: Criar aluno
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://expert-zebra-g4g59x4gj66v3w77p-3000.app.github.dev/alunos
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nome": "João Teste",
+    "email": "joao.perfeito@email.com",
+    "senhaHash": "hash_temporario_456",
+    "cidade": "Salinas"
+  }
+}

@@ -1,10 +1,13 @@
+import 'dotenv/config';
 import express from 'express';
 // 1. Adicione o import do logger bem aqui no topo:
 import logger from './middlewares/logger.js';
 import alunosRouter from './routes/alunos.js';
+import tratarErro from './middlewares/erro.js';
+import mensagensRouter from './routes/mensagens.js';
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // IMPORTANTE: A ordem aqui importa muito!
 app.use(express.json()); // 1º - parseia o JSON do body
@@ -20,6 +23,9 @@ app.get('/status', (req, res) => {
 });
 
 app.use('/alunos', alunosRouter);
+app.use('/mensagens', mensagensRouter);
+
+app.use(tratarErro);
 
 if (process.env.VERCEL !== '1') {
   app.listen(PORT, () => {

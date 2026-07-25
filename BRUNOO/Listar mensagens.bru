@@ -1,0 +1,22 @@
+meta {
+  name: Listar mensagens
+  type: http
+  seq: 9
+}
+
+get {
+  url: https://expert-zebra-g4g59x4gj66v3w77p-3000.app.github.dev/mensagens
+  body: none
+  auth: inherit
+}
+
+tests {
+  test("deve retornar status 200", function() {
+    expect(res.getStatus()).to.equal(200);
+  });
+  
+  test("deve retornar um array", function() {
+    expect(res.getBody()).to.be.an('array');
+  });
+  
+}

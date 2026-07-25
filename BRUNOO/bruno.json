@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Yearbook API REBECCA B",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

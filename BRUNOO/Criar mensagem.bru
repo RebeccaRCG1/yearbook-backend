@@ -1,0 +1,28 @@
+meta {
+  name: Criar mensagem
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://expert-zebra-g4g59x4gj66v3w77p-3000.app.github.dev/mensagens
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "texto": "Salve, turma! Último ano!",
+    "autorId": 1
+  }
+}
+
+tests {
+  test("deve retornar status 201", function() {
+    expect(res.getStatus()).to.equal(201);
+  });
+  
+  test("deve conter campo texto", function() {
+    expect(res.getBody().texto).to.equal('Salve, turma! Último ano!');
+  });
+}
