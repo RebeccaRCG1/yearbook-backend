@@ -26,6 +26,9 @@ export async function listarAlunos(req, res, next) {
   }
 }
 
+// Mantemos o alias caso alguma rota antiga use 'listar'
+export const listar = listarAlunos;
+
 // GET /alunos/:id — busca um aluno pelo ID
 export async function buscarAluno(req, res, next) {
   try {
