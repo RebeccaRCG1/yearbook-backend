@@ -89,7 +89,7 @@
     - *Body:* Nenhum
     - *Resposta de sucesso:* 200 OK
 
-    json
+    ```json
     [
         {
         "id": 1,
@@ -104,9 +104,6 @@
         }
     ]
     
-
-    - *Erros:*
-      - 401 — Credenciais inválidas 
 
 
     ### GET /alunos/:id
@@ -209,9 +206,6 @@
     ]
     
 
-    - *Erros:*
-      - 400 — Informações incompletas 
-
     ### POST /mensagens
 
     Cria uma nova mensagem.
@@ -220,10 +214,10 @@
     - *Body:* 
      json
     {
-      "alunoId": 8,
-      "conteudo": "Parabéns pelo seu sucesso !"
+      "alunoId": 5,
+      "conteudo": "Parabéns pela sua formatura ! Estou muito feliz por você !"
     }
-    
+    S
 
     - *Resposta de sucesso:* 201 Created
    
